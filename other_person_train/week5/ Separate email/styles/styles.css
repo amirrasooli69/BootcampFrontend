@@ -1,0 +1,108 @@
+@import url(./reset.css);
+@import url(./fonts.css);
+
+body {
+  background: linear-gradient(
+    138deg,
+    rgb(74, 109, 255) 0%,
+    rgb(31, 74, 255) 100%
+  );
+  color: #3f4264;
+  font-family: "Open Sans", "Average Sans";
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.card > h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.card > form {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  min-width: 64px;
+}
+.card > form > span {
+  display: block;
+}
+.title {
+  color: rgb(42, 45, 83);
+  margin-bottom: 0.5rem;
+}
+.description {
+  color: rgb(106, 108, 135);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-left: 0.8rem;
+}
+.emailInputField {
+  margin: 0.8rem 0 1rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(243, 244, 246);
+  background-color: rgb(243, 244, 246);
+  padding: 0.75rem 1rem;
+  color: rgb(42, 45, 83);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.emailInputField:hover {
+  border: 1px solid rgb(183, 197, 255);
+}
+.emailInputField:focus {
+  border: 1px solid rgb(183, 197, 255);
+  background-color: rgb(255 255 255);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  background-color: rgb(255 255 255);
+  box-shadow: 0 10px 15px -3px rgb(183, 197, 255),
+    0 4px 6px -4px rgb(183, 197, 255);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.checkedBTN {
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background-color: rgb(74, 109, 255);
+  color: rgb(255 255 255);
+  box-shadow: 0 10px 15px -3px rgb(183, 197, 255),
+    0 4px 6px -4px rgb(183, 197, 255);
+}
+.card > form > p {
+  text-align: center;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+.red {
+  background-color: #f43f5e;
+  color: #fecdd3;
+}
+.green {
+  background-color: #bef264;
+  color: #14532d;
+}

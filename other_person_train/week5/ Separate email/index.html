@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fereshteh Borhani</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h2 class="cardTittle">Separate Email Address</h2>
+        <form action="">
+          <label class="description" for="emailAddres">
+            Please enter your email address
+          </label>
+
+          <input
+            type="text"
+            id="emailAddress"
+            class="emailInputField"
+            placeholder="Enter your email address"
+          />
+
+          <p id="message"></p>
+
+          <button type="button" class="checkedBTN" onclick="checkEmail()">
+            Checked
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="./js/seperateEmail.js"></script>
+  </body>
+</html>

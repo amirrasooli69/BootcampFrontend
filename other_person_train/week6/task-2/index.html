@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>بررسی عدد اول</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="w-full mt-20 flex flex-col justify-center items-center">
+    <div class="flex flex-col bg-white w-1/2 p-20 m-auto rounded-md shadow">
+      <h2 class="mb-4">بررسی عدد اول</h2>
+      <input
+        class="border rounded-lg p-3"
+        type="number"
+        id="number"
+        placeholder="عدد مورد نظر"
+      />
+      <button class="p-3 bg-green-200 mt-4 rounded-lg" onclick="checkPrime()">
+        بررسی
+      </button>
+      <div class="text-center mt-4" id="primeResult"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -21,7 +21,7 @@ body {
 
 .container {
     width: 100%;
-    margin: 40px;
+    margin: 40px auto 40px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@ button:hover{
     background-color: var(--color-error);
 }
 
-.table{
+table{
     width: 100%;
 }
 
@@ -93,4 +93,31 @@ thead th {
 
 thead th:first-child{
     border-top-left-radius: 10px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tbody td {
+    background-color: var(--color-task);
+    padding: 5px 10px;
+    text-align: center;
+}
+
+tbody td button {
+    padding: 4px 8px;
+    margin: 2px 5px;
+}
+
+tbody td button:nth-child(1){
+    background-color: var(--color-warning);
+}
+
+tbody td button:nth-child(2){
+    background-color: var(--color-success);
+}
+
+tbody td button:nth-child(3){
+    background-color: var(--color-error);
 }

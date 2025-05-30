@@ -9,6 +9,11 @@ let step = 0;
 let counterStep = 0;
 
 const createStepHanler = () => {
+  step = parseInt(inputNumber.value);
+  if (isNaN(step) || step <= 0) {
+    alert("لطفا عدد وارد کنید");
+    return;
+  }
   progressBar.innerHTML = "";
   step = inputNumber.value;
   for (let i = 1; i <= step; i++) {
@@ -18,32 +23,30 @@ const createStepHanler = () => {
         </div>`;
   }
   tagNode = document.querySelectorAll(".node");
+  console.log(tagNode[0].style.backgroundColor);
 };
 
 const stepHander = () => {
-  while ((counterStep) => 1 && counterStep <= step) {
-    for (let i = 1; i <= step; i++) {
-      if (i <= counterStep) {
-        tagNode[i].style.backgroundColor = "#699cdd";
-      } else {
-        tagNode[i].style.backgroundColor = "#ffffff";
-      }
-    }
+  console.log("counterStep => ", counterStep, "  ", "step => ", step);
 
-    if (counterStep === step) {
-      prevStepButton.disabled = false;
-      nextStepButton.disabled = true;
-      return;
-    }
-    if (counterStep > 0 && counterStep < step) {
-      prevStepButton.disabled = false;
-      nextStepButton.disabled = false;
-      return;
-    }
-    if (counterStep <= 1) {
-      prevStepButton.disabled = true;
-      nextStepButton.disabled = false;
-      return;
+  if (counterStep == step) {
+    prevStepButton.disabled = false;
+    nextStepButton.disabled = true;
+    console.log("finish");
+  } else if (counterStep > 0 && counterStep < step) {
+    prevStepButton.disabled = false;
+    nextStepButton.disabled = false;
+  } else if (counterStep < 1) {
+    prevStepButton.disabled = true;
+    nextStepButton.disabled = false;
+    console.log("first");
+  }
+
+  for (let i = 0; i < step; i++) {
+    if (i < counterStep) {
+      tagNode[i].style.backgroundColor = "#699cdd";
+    } else {
+      tagNode[i].style.backgroundColor = "#ffffff";
     }
   }
 };

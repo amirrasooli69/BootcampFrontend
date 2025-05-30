@@ -1,3 +1,7 @@
+:root {
+    --color-white: #ffffff;
+    --color-success: #699cdd;
+}
 *{
     margin: 0px;
     padding: 0px;
@@ -13,11 +17,15 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    gap: 50px;
+    align-items: center;
 }
 
 .next-prev {
     display: flex;
     gap: 20px;
+    align-items: center;
+    justify-items: center;
 }
 
 .next {
@@ -26,4 +34,19 @@ body {
 
 .prev {
     width: 60px;
+}
+
+.progress-bar{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.progress-bar div {
+    border-radius: 30%;
+    padding: 10px;
+}
+
+.success { 
+    background-color: var(--color-success);
 }

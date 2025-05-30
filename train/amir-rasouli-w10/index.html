@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,17 +8,20 @@
   </head>
   <body>
     <div class="container">
-        <div class="input">
-                  <label>تعداد Step:</label>
-      <input type="text" id="input-number" placeholder="تعداد step " />
-      <button id="create-step">ساخت</button>
+      <div class="input">
+        <label>تعداد Step:</label>
+        <input type="text" id="input-number" placeholder="تعداد step " />
+        <button id="create-step">ساخت</button>
+      </div>
+      <div class="progress">
+        <div class="progress-next-prev">
+          <div class="progress-bar" id="progress-bar"></div>
         </div>
-        <div class="progress">
-            <div class="next-prev">
-                <button class="next" id="next-button">بعدی</button>
-                <button class="prev" id="prev-button">قبلی</button>
-            </div>
-        </div>
+      </div>
+      <div class="next-prev">
+        <button class="prev" id="prev-button">قبلی</button>
+        <button class="next" id="next-button">بعدی</button>
+      </div>
     </div>
 
     <script src="./script.js"></script>

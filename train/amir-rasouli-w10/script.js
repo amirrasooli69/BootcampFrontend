@@ -7,13 +7,19 @@ let tagNode = [];
 
 let step = 0;
 let counterStep = 0;
-
+prevStepButton.disabled = true;
+nextStepButton.disabled = true;
 const createStepHanler = () => {
+  step = 0;
+  counterStep = 0;
+
   step = parseInt(inputNumber.value);
   if (isNaN(step) || step <= 0) {
     alert("لطفا عدد وارد کنید");
     return;
   }
+  prevStepButton.disabled = false;
+  nextStepButton.disabled = false;
   progressBar.innerHTML = "";
   step = inputNumber.value;
   for (let i = 1; i <= step; i++) {
@@ -27,19 +33,17 @@ const createStepHanler = () => {
 };
 
 const stepHander = () => {
-  console.log("counterStep => ", counterStep, "  ", "step => ", step);
-
   if (counterStep == step) {
     prevStepButton.disabled = false;
     nextStepButton.disabled = true;
-    console.log("finish");
+    // console.log("end");
   } else if (counterStep > 0 && counterStep < step) {
     prevStepButton.disabled = false;
     nextStepButton.disabled = false;
   } else if (counterStep < 1) {
     prevStepButton.disabled = true;
     nextStepButton.disabled = false;
-    console.log("first");
+    // console.log("first");
   }
 
   for (let i = 0; i < step; i++) {
@@ -60,7 +64,6 @@ const prevStepHandler = () => {
   counterStep--;
   stepHander();
 };
-// console.log(step, "  ", counterStep);
 
 createStepButton.addEventListener("click", createStepHanler);
 nextStepButton.addEventListener("click", () => nextStepHandler());

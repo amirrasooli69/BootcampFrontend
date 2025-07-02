@@ -3,19 +3,20 @@ import ContactsList from "./ContactsList";
 import type { ContactType } from "../types/contact.type";
 import inputs from "../constants/inputs";
 import { v4 } from "uuid";
+import styles from './Contacts.module.css'
 
 function Contact() {
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState<ContactType[]>([]);
   const [contact, setContact] = useState<ContactType>({
-    id:"",
+    id: "",
     name: "",
     lastName: "",
     email: "",
     phone: ""
   })
 
-  const changeHandler = (event: any) => {
+  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name;
     const value = event.target.value;
 
@@ -28,7 +29,7 @@ function Contact() {
       return;
     }
     setAlert("")
-    const newContact = {...contact, id: v4()}
+    const newContact = { ...contact, id: v4() }
     setContacts((contacts) => [...contacts, newContact])
     setContact({
       id: "",
@@ -39,16 +40,27 @@ function Contact() {
     })
   }
 
+  const deleteHandler = (id: string) => {
+    const newContacts = contacts.filter(contact => contact.id !== id);
+    setContacts(newContacts);
+  }
   return (
-    <div>
-      <div>
-        {inputs.map((input, index) => <input key={index} type={input.type} name={input.name} placeholder={input.placeholder} value={contact[input.name]} onChange={changeHandler} />)}
+    <div className={styles.container}>
+      <div className={styles.form}>
+        {inputs.map((input, index) =>
+          <input key={index}
+            type={input.type}
+            name={input.name}
+            placeholder={input.placeholder}
+            value={contact[input.name as keyof ContactType]}
+            onChange={changeHandler}
+          />)}
         <button onClick={addHandler}>Add Contact</button>
       </div>
-      <div>
+      <div className={styles.alert}>
         {alert && <p>{alert}</p>}
       </div>
-      <ContactsList contacts={contacts} />
+      <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
 
     </div>
   )

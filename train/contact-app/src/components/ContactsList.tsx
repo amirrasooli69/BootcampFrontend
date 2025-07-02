@@ -1,21 +1,22 @@
 import type { ContactType } from "../types/contact.type"
+import ContactItem from "./ContactItem"
+import styles from './ContactList.module.css'
 
-// interface IContact {
-//   name: string;
-//   lastName: string;
-//   email: string;
-//   phone: string;
-// }
+export interface ContactsListProps {
+  contacts: ContactType[];
+  deleteHandler: (id: string) => void;
+}
+function ContactsList({ contacts, deleteHandler}: ContactsListProps) {
 
-function ContactsList({contacts}: ContactType[]) {
-
-    console.log(contacts)
     return (
-        <div>
-            <h4>Contact list</h4> 
-            <ul>
-                {contacts.map(contact => <li key={contact.id}>{contact.name}</li>)}
-            </ul>
+        <div className={styles.container}>
+            <h3>Contact list</h3>
+            {contacts.length ? (<ul className={styles.contacts}>
+                {contacts.map(contact =>
+                    <ContactItem key={contact.id} data={contact} deleteHandler={deleteHandler}/>
+                )}
+            </ul>) : <p className={styles.message}>Contact Not Yet</p>}
+
         </div>
     )
 }

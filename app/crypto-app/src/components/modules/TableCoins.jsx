@@ -2,7 +2,8 @@ import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
 import { MutatingDots } from "react-loader-spinner";
 import styles from './TableCoins.module.css'
-function TableCoins({ coins, isLoading }) {
+
+function TableCoins({ coins, isLoading, currency }) {
   return (
     <div className={styles.container}>
       {isLoading ? (
@@ -21,7 +22,7 @@ function TableCoins({ coins, isLoading }) {
           </thead>
           <tbody>
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} />
+              <TableRow coin={coin} key={coin.id} currency={currency}/>
             ))}
           </tbody>
         </table>
@@ -40,7 +41,7 @@ const TableRow = ({
     current_price,
     price_change_percentage_24h: price_change,
     total_volume,
-  },
+  }, currency,
 }) => {
   return (
     <tr>
@@ -51,7 +52,7 @@ const TableRow = ({
         </div>
       </td>
       <td>{name}</td>
-      <td>${current_price.toLocaleString()}</td>
+      <td>{currency == "usd"? "$" : "€"} {current_price.toLocaleString()}</td>
       <td className={price_change > 0 ? styles.success : styles.error}>{price_change.toFixed(2)}%</td>
       <td>${total_volume.toLocaleString()}</td>
       <td>

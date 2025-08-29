@@ -1,10 +1,10 @@
-const { default: axios } = require("axios");
+import axios  from "axios";
 
-const BASE_URL = "https://fakestoreapi.com";
+const api = axios.create({ baseURL: "https://fakestoreapi.com" });
 
-const api = axios.create({ baseUrl: "https://fakestoreapi.com/" });
-
-api.interceptors.request.use(
+api.interceptors.response.use(
   (response) => response.data,
   (error) => Promise.reject(error)
 );
+
+export default api;

@@ -9,14 +9,11 @@ function Card({ data }) {
   const { id, image, price, title } = data;
   const [state, dispatch] = useCart();
 
-  console.log(state);
-
   const clickHandler = (type) => {
     dispatch({ type, payload: data });
   };
 
   const quantity = productQuantity(state, id);
-  console.log(quantity);
 
   return (
     <div className={styles.card}>

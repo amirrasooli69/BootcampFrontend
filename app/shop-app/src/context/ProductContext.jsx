@@ -28,5 +28,11 @@ const useProducts = () => {
     return products;
 }
 
+const useProductDetails = id =>{
+  const products = useProducts();
+  const product = products.find(item => item.id === id);
+  return product;  
+}
+
 export default ProductsProvider;
-export {useProducts};
+export {useProducts, useProductDetails};

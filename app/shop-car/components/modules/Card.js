@@ -1,6 +1,7 @@
 import styels from "./Card.module.css";
 import Location from "../icons/Location"
 import Link from "next/link";
+
 function Card(props) {
   const {
     id,
